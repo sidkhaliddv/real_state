@@ -1,0 +1,19 @@
+<h1>this is the new page</h1>
+<%= form_with model: @resource do |f| %>
+	<div>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</div>
+
+	<div>
+		<%= f.label :size %>
+		<%= f.text_field :size %>
+	</div>
+
+	<div>
+		<%= f.label :price %>
+		<%= f.text_field :price %>
+	</div>
+
+	<%= f.submit %>
+<% end %>

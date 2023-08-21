@@ -1,0 +1,17 @@
+<%= link_to property_path(property.id) do %>
+	<div class="card mb-5 mt-2">
+		<div class="row no-gutters">
+			<div class="col-4">
+				<img src="..." class="card-img" alt="...">
+			</div>
+			<div class="col-8">
+				<div class="card-body">
+					<h5 class="card-title"><%= property.price %> Million</h5>
+					<p class="card-text"><%= property.address %></p>
+					<p class="card-text"><%= property.address %></p>
+					<p class="card-text"><small class="text-muted">Size <%= property.size %> SQFT</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
