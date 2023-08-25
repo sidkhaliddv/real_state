@@ -15,5 +15,8 @@
 		<%= f.text_field :price %>
 	</div>
 
+	<%= f.label :images %>
+	<%= f.file_field :images, multiple: true, accept: 'image/*' %>
+
 	<%= f.submit %>
 <% end %>
