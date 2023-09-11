@@ -11,3 +11,10 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+$(document).ready(()=>{
+	$('.switchPropertyStatus').on('click', ()=>{
+		$(this).closest('form')
+		console.log('asdasd')
+		$('#switch_property_status_form').submit()
+	})
+})

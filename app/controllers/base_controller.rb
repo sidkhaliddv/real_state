@@ -4,7 +4,7 @@ class BaseController < ApplicationController
 	end
 
 	def new
-		# @resource = new_resource
+		@resource = model.new
 	end
 
   def create
@@ -15,7 +15,25 @@ class BaseController < ApplicationController
 		end
 	end
 
+	def edit
+		resource
+	end
+
+	def update
+		if resource.update(permitted_params)
+			redirect_to resource
+		else
+			render :edit, status: :unprocessable_entity
+		end
+	end
+
 	def show
 		@resource = resource
+	end
+
+	def destroy
+		resource.destroy
+		
+		redirect_to request.referrer
 	end
 end

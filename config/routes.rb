@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'properties#index'
   resources :properties
+
+  namespace :profile do
+    resources :properties do
+      put 'change_status', on: :member
+    end
+  end
 end

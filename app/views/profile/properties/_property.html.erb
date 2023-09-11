@@ -1,0 +1,21 @@
+<div class="card mt-5" style="width: 18rem;">
+  <%= image_tag property.images.first || 'https://img.staticmb.com/mbcontent/images/uploads/2022/12/Most-Beautiful-House-in-the-World.jpg',
+    class: 'card-img-top', alt: 'image not found' %>
+  <div class="card-body">
+    <p class="card-text">
+			<%= property.address %>
+    </p>
+  </div>
+	<div class="card-body">
+    <%= link_to 'Edit', edit_profile_property_path(property.id) %>
+    <%= link_to 'Destroy', profile_property_path(property.id), data: { 
+      turbo_method: 'delete',
+      turbo_confirm: 'Are you sure' } %>
+    <form id='switch_property_status_form' method='POST' action=<%="/profile/properties/#{property.id}/change_status"%>>
+      <div class="form-check form-switch">
+        <input class="form-check-input switchPropertyStatus" type="checkbox" role="switch" value='PUT'>
+        <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>
+      </div>
+    </form>
+  </div>
+</div>

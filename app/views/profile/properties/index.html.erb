@@ -1,0 +1,14 @@
+<div class='container'>
+<div class='d-flex justify-content-between'>
+		<div class='p-2'>
+			<h1>My Properties </h1>
+		</div>
+		<div class='mr-auto p-2'>
+			<%= link_to 'Create new Property', new_profile_property_path %>
+		</div>
+	</div>
+	<% render partial: 'properties/property', collection: @resources %>
+	<div class='d-flex flex-wrap justify-content-between'>
+		<%= render @resources %>
+	</div>
+</div>
