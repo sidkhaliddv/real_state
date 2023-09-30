@@ -1,0 +1,38 @@
+<div class= 'row w-100'>
+  <div class='mt-5 col-sm-6 d-flex align-items-center justify-content-center align-middle d-flex flex-column key-section' style="height: 70vh">
+    <%= image_tag 'key.png', class: 'key-image' %>
+    <span class='mt-2'>Image by <a href="https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=30417">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=30417">Pixabay</a></span>
+  </div>
+  <div class='col-sm-6 border-start d-flex align-items-center justify-content-center align-middle login-section' style="height: 70vh">
+    <div>
+      <h2 class='text-center m-4'><b>Sign up</b></h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="field mt-3 shadow">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeHolder: 'Email',
+            class: 'form-control' %>
+        </div>
+      
+        <div class="field mt-3">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "current-password", placeHolder: 'Password',
+            class: 'form-control shadow'%>
+        </div>
+      
+        <div class="field mt-3 shadow">
+          <%= f.password_field :password, autocomplete: "current-password", placeHolder: 'Password',
+            class: 'form-control'%>
+        </div>
+      
+        <div class="actions d-flex align-items-center justify-content-end">
+          <%= f.submit "Sign up", class: 'mt-3 btn btn-dark' %>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

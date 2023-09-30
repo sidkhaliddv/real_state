@@ -33,7 +33,10 @@ class BaseController < ApplicationController
 
 	def destroy
 		resource.destroy
-		
-		redirect_to request.referrer
+
+		respond_to do |format|
+			format.turbo_stream
+			format.html { redirect_to request.referrer }
+		end
 	end
 end

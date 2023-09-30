@@ -1,17 +1,19 @@
-<div class='col-md-4 d-flex aligns-items-center justify-content-center'>
+<%= turbo_frame_tag property, class: 'col-md-4 d-flex aligns-items-center justify-content-center' do %>
   <div class="card mt-5" style="width: 80%;">
     <%= image_tag property.images.first || 'https://img.staticmb.com/mbcontent/images/uploads/2022/12/Most-Beautiful-House-in-the-World.jpg',
-      class: 'card-img-top', alt: 'image not found' %>
+      class: 'card-img-top', alt: 'house image here' %>
     <div class="card-body">
       <p class="card-text">
         <%= property.address %>
       </p>
     </div>
     <div class="card-body">
-      <%= link_to 'Edit', edit_profile_property_path(property.id) %>
-      <%= link_to 'Destroy', profile_property_path(property.id), data: { 
-        turbo_method: 'delete',
-        turbo_confirm: 'Are you sure' } %>
+      <div>
+        <%= link_to 'Edit', edit_profile_property_path(property.id), data: { turbo_frame: "_top" } %>
+        <%= link_to 'Destroy', profile_property_path(property.id), data: {
+          turbo_method: 'delete',
+          turbo_confirm: 'Are you sure' } %>
+      </div>
       <div class="form-check form-switch" data-controller='property'>
         <input class="form-check-input switchPropertyStatus" type="checkbox" role="switch" id=<%=property.id%> <%= property.status == 'sale'? 'checked' : '' %>
           value = <%=property.status.to_i %>
@@ -21,4 +23,4 @@
       </div>
     </div>
   </div>
-</div>
+<% end %>
