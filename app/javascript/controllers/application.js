@@ -12,9 +12,39 @@ window.Stimulus   = application
 
 export { application }
 $(document).ready(()=>{
-	$('.switchPropertyStatus').on('click', ()=>{
-		$(this).closest('form')
-		console.log('asdasd')
-		$('#switch_property_status_form').submit()
+	// $('.switchPropertyStatus').on('click', (event)=>{
+	// 	$.ajax({
+	// 		url: `/profile/properties/${event.target.id}/change_status`,
+	// 		type: 'put',
+	// 		data: {status: event.target.checked ? 1 : 0},
+	// 		dataType: 'script',
+	// 		success: (res)=>{
+	// 			console.log('success')
+	// 		}
+	// 	})
+	// })
+
+	function showImage(input) {
+		console.log('here')
+		console.log(input)
+		if (input.files && input.files[0]) {
+			console.log('appending')
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				var img = $('<img />', {
+					src: e.target.result,
+					alt: 'house image'
+				});
+				img.appendTo($('#form_field'))
+			}
+			reader.readAsDataURL(input.files[0])
+		}
+	}
+
+	$('#form_images').on('change', ()=>{
+		console.log('change')
+		$(this).attr('style', 'background-color: red !important');
+		showImage($(this))
 	})
 })

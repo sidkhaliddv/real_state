@@ -7,8 +7,8 @@
 			<%= link_to 'Create new Property', new_profile_property_path %>
 		</div>
 	</div>
-	<% render partial: 'properties/property', collection: @resources %>
-	<div class='d-flex flex-wrap justify-content-between'>
+
+	<div class='row align-middle'>
 		<%= render @resources %>
 	</div>
 </div>
