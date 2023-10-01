@@ -75,4 +75,5 @@ end
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem "devise", "~> 4.9"
 gem 'jquery-rails'
+gem 'stripe'
 gem 'pundit'

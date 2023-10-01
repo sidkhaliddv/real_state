@@ -21,8 +21,16 @@
     <p><h3>Address <span><%= @resource.address %></span></h3><p>
     <div class="container p-5 my-5 border border-dark">
         
-        <p><h3>Price</h3> <%= @resource.price %></p>
+        <p><h3>Price</h3> <%= @resource.price %> </p>
         <p><h3>Size</h3> <%= @resource.size %></p>
         <p><b>Description</b> <%= @resource.description %> </p>
+        <% if current_user %>
+            <% if current_user.wallet.cash >= @resource.price %>
+                <%= link_to 'Buy', buy_property_path(@resource), class: 'btn btn-dark px-5', method: :put,
+                    data: { confirm: 'are you sure' } %>
+            <% else %>
+                <button type="button" class="btn btn-danger" disbaled>Not enough cash</button>
+            <% end %>
+        <% end %>
     </div>
 </div>

@@ -1,0 +1,16 @@
+<div class='container mt-4'>
+    <h2>My Wallet</h2>
+
+    <%= turbo_frame_tag @resource do %>
+        <div class='row mt-5'>
+            <div class='col-sm-2'>
+                <h5>Cash Available</h5>
+            </div>
+            <div class='col-sm-7'>
+                <span id: 'available-cash'><%= @resource.cash || 0 %></span>
+            </div>
+
+            <%= link_to 'Add cash', edit_profile_wallet_path, class: 'mt-3' %>
+        </div>
+    <% end %>
+</div>

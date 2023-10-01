@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'properties#index'
-  resources :properties
+  resources :properties do
+    put 'buy', on: :member
+  end
 
   namespace :profile do
     resources :properties do
       put 'change_status', on: :member
     end
+
+    resource :wallet, except: [:new, :create]
   end
 end

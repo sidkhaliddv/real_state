@@ -3,6 +3,14 @@ class PropertiesController < BaseController
 		@resource = current_user.properties.new
 	end
 
+	def buy
+		ActiveRecord::Base.transaction do
+			resource.user.wallet.increment!(:cash, resource.price)
+			current_user.properties << resource
+			current_user.wallet.decrement!(:cash, resource.price)
+		end
+	end
+
 	private
 		def permitted_params
 			params.require(:property).permit(:address, :size, :price, :status)

@@ -1,0 +1,7 @@
+<%= form_with model: [:profile, @resource] do |f| %>
+	<div class='d-flex flex-column' style='max-width: 300px'>
+		<%= f.number_field :cash, class: 'mb-3', value: '', placeholder: 'Enter cash to be added... p-5' %>
+		Current Balance <%= @resource.cash || 0 %>
+	</div>
+	<%= f.submit 'Add', class: 'btn btn-dark mt-3 d-flex justify-content-end' %>
+<% end %>

@@ -21,7 +21,11 @@ class BaseController < ApplicationController
 
 	def update
 		if resource.update(permitted_params)
-			redirect_to resource
+			byebug
+			respond_to do |format|
+				format.html { redirect_to resource }
+				format.turbo_stream
+			end
 		else
 			render :edit, status: :unprocessable_entity
 		end
