@@ -17,7 +17,7 @@ class PropertiesController < BaseController
 		end
 
 		def resources
-			@resources ||= Property.all
+			@resources ||= Property.where(status: 1)
 		end
 
 		def resource
